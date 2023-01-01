@@ -1,0 +1,14 @@
+#include <queue> 필요 
+기본형태 priority_queue<int,vector<int>,less<int>> PQ;
+가장 우선순위가 높은게 낮길 바란다면
+priority_queue<int,vector<int>,greater<int>> PQ2;
+따로 지정 하고 싶다면 
+class Compare{
+public:
+       bool operator()(Edge e1,Edge e2){
+       return e1.weight>e2.weight;
+       }
+}
+라면 간선의 가중치가 무거우면 옮긴다는 뜻이므로
+간선의 가중치가 점점 커지게 된다.
+즉 가장 우선순위가 높은게 간선의 가중치가 낮다.

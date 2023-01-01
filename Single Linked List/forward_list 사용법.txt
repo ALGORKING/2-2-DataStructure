@@ -1,0 +1,20 @@
+#include <forward_list>
+std:;forward_list는 전체리스트의 크기를 반환한거나 또는 첫 번째 원소를 제외한 나머지 원소에 직접 접근하는 기능을
+	제공하지 않는다.==front()함수를 제공하지만 반대 방향의 원소로 이동하는 back()같은 함수는 제공하지 않는다.
+	원소의 삽입 삭제 순서 뒤집기 분할을 위한 기능은 제공
+선언: forward_list<int> fwd_list={1,2,3};
+맨앞에 추가:fwd_list.push_front(0),fwd_list.emplace_front(0)->emplace 함수는 삽입함수와 같은 기능을 수행하지만
+추가적인 복사나 이동을 하지 않기 떄문에 더 효율적
+맨앞 원소를 삭제:fwd_list.pop_front()
+auto it=fwd_list.begin()
+it+5 나 it+=2 안된다
+옮기고 싶으면 advance(it,2)로 2칸 옮길 수 있다 역방향은 안된다
+it 다음 추가:fwd_list.insert_after(it,5),fwd_list.emplace_after(iter,100)
+it 다음 원소 삭제: fwd_list.erase_after(it)
+it 다음 원소부터 맨 마지막 원소까지 삭제:fwd_list.erase_after(it,fwd_list.end())
+특정 원소값삭제:fwd_list.remove(100)
+특정 조건에 맞는 원소 삭제: fwd_list.remove_if([](int a){return a<20})
+오름 차순 정렬:fwd_list.sort()
+내림 차순 정렬:fwd_list.sort(greater<int>())
+역방향으로 바꾸기:fwd_list.reverse()
+홀로 나타나는 함수는 납두고 나머지 제거:fwd_list.unique()

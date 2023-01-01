@@ -1,0 +1,27 @@
+push_front() pop_front(), push_back() pop_back()의 동작이 O(1)이 되야 함
+모든 원소에 대한 임의 접근 동작이 O(1) 시간 복잡도로 동작해야 한다.
+덱 중간에서 원소 삽입 또는 삭제는 O(n)시간 복잡도로 동작해야 하며 실제로는 최대 n/2단계로 동작
+여기서 n은 덱의 크기
+#include <deque> 필요
+선언:deque<int> p = { 1,2,3,4,5 };
+앞에 삽입:	p.push_front(0);
+뒤에 삽입:	p.push_back(6);
+중간에 삽입 가능:p.insert(p.begin() + 2, 10); p.begin()+2가 된다 즉 원소 직접 접근이 되기 때문에
+뒤에 삭제:	p.pop_back();
+앞에 삭제:	p.pop_front();
+중간 삭제	p.erase(p.begin() + 1);
+중간 삭제	p.erase(p.begin() + 3, p.end());
+사이즈 계산	int k = p.size();
+	for (int i = 0; i < k; i++) {
+직접 접근 가능		cout << p[i] << " ";
+	}
+	cout << endl;
+반복자 선언 가능	deque<int>::iterator iter = p.begin();
+	for (; iter != p.end(); iter++) {
+		cout << *(iter) << endl;
+	}
+	직접 접근이 되기 때문에
+	iter = p.begin();
+	iter += 2;
+	가능
+	직접 접근 안되면 advance()함수 이용

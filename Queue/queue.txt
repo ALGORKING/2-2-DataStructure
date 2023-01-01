@@ -1,0 +1,11 @@
+queue<int> que3;
+	que3.push(1);
+	que3.push(7);
+	que3.push(3);
+	que3.push(8);
+	int k = que3.size();
+	for (int i = 0; i < k; i++) {
+		cout << que3.front() << endl;
+		que3.pop();
+	}
+	#include <queue> ÇÊ¿ä

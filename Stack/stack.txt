@@ -1,0 +1,11 @@
+stack<int> t;
+	t.push(3);
+	t.push(7);
+	t.push(1);
+	int k = t.size();
+	for (int i = 0; i <k; i++) {
+		cout << t.top()<<endl;
+		t.pop();
+	}
+#include <stack> 필요
+t.size()는 계속 변한다는 사실 인지 필요!

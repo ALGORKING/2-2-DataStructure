@@ -1,0 +1,30 @@
+연결 리스트 순회하기 딱 좋음
+벡터나 기본적으로 제공해주는 자료구조를 순환할때 좋다 스택 과 큐는 없다
+기본적으로 배열인 경우 한번에 접근 할 수 있도록 it+=8이런 연산 허용하지만
+연결리스트로 구현된 경우는 오류발생
+vector<int> a;
+	a.push_back(1);
+	a.push_back(10);
+	a.push_back(3);
+	a.push_back(7);
+	vector<int>::iterator iter;
+	for (iter = a.begin(); iter != a.end(); iter++) {
+		cout << *iter << " ";
+	}
+	iter = a.begin() + 3;//된다
+	list<int> c;
+	c.push_back(3);
+	c.push_back(1);
+	c.push_back(7);
+	c.push_front(5);
+	//c.insert(c.begin() + 2, 100); 이런거 안됨
+	list<int>::iterator it = c.begin();
+	advance(it, 2);
+	c.insert(it, 100);
+	cout << endl;
+	for (it = c.begin(); it != c.end(); it++) {
+		if (*it == 7) {
+			*it = 50;
+		}
+		cout << *it << " ";
+	}
